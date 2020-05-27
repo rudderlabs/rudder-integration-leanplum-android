@@ -24,8 +24,8 @@ repositories {
 4. Add the dependency under ```dependencies```
 ```
 // Rudder core sdk and leanplum extension
-implementation 'com.rudderstack.android.sdk:core:1.0.1-beta.2'
-implementation 'com.rudderstack.android.integration:leanplum:0.1.0-beta.6'
+implementation 'com.rudderstack.android.sdk:core:1.0.2'
+implementation 'com.rudderstack.android.integration:leanplum:0.1.0'
 
 // leanplum core sdk
 implementation 'com.leanplum:leanplum-core:5.3.3'

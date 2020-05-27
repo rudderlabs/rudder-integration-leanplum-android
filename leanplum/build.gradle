@@ -21,7 +21,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 29
         versionCode 1
-        versionName "0.1.0-beta.6"
+        versionName "0.1.0"
     }
 
     buildTypes {
@@ -40,7 +40,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // rudder core sdk
-    compileOnly 'com.rudderstack.android.sdk:core:1.0.1-beta.2'
+    compileOnly 'com.rudderstack.android.sdk:core:1.0.2'
 
     // leanplum dependencies
     implementation 'com.leanplum:leanplum-core:5.3.3'
