@@ -1,9 +1,9 @@
 # What is Rudder?
 
-**Short answer:** 
+**Short answer:**
 Rudder is an open-source Segment alternative written in Go, built for the enterprise.
 
-**Long answer:** 
+**Long answer:**
 Rudder is a platform for collecting, storing and routing customer event data to dozens of tools. Rudder is open-source, can run in your cloud environment (AWS, GCP, Azure or even your data-centre) and provides a powerful transformation framework to process your event data on the fly.
 
 Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
@@ -11,7 +11,7 @@ Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 ## Getting Started with LeanPlum Integration of Android SDK
 1. Add [LeanPlum](https://www.leanplum.com) as a destination in the [Dashboard](https://app.rudderstack.com/) and define `applicationId`, and `clientKey`. If you turn on the Development Environment flag, make sure to put your development key in `clientKey`.
 
-2. Setup the Hybrid Mode of integration: 
+2. Setup the Hybrid Mode of integration:
   - Turning on the switch beside `Initialize Native SDK to send automated events` in the dashboard will initialize the LeanPlum native SDK in the application.
   - Turning on the switch beside `Use native SDK to send user generated events` in the dashboard will instruct your `data-plane` to skip the events for LeanPlum and the events will be sent from the LeanPlum SDK.
 
@@ -25,7 +25,7 @@ repositories {
 ```
 // Rudder core sdk and leanplum extension
 implementation 'com.rudderstack.android.sdk:core:1.0.2'
-implementation 'com.rudderstack.android.integration:leanplum:0.1.0'
+implementation 'com.rudderstack.android.integration:leanplum:1.0.0'
 
 // leanplum core sdk
 implementation 'com.leanplum:leanplum-core:5.3.3'

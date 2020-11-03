@@ -35,9 +35,9 @@ public class LeanPlumIntegrationFactory extends RudderIntegration<Void> {
     };
 
     private LeanPlumIntegrationFactory(@Nullable Object config, @NonNull RudderClient client, @NonNull RudderConfig rudderConfig) {
-        Leanplum.setApplicationContext(client.getApplication());
-        if (client.getApplication() != null) {
-            LeanplumActivityHelper.enableLifecycleCallbacks(client.getApplication());
+        Leanplum.setApplicationContext(RudderClient.getApplication());
+        if (RudderClient.getApplication() != null) {
+            LeanplumActivityHelper.enableLifecycleCallbacks(RudderClient.getApplication());
         }
 
         Map<String, Object> configMap = (Map<String, Object>) config;
@@ -70,9 +70,9 @@ public class LeanPlumIntegrationFactory extends RudderIntegration<Void> {
                 }
             }
             if (userId != null) {
-                Leanplum.start(client.getApplication(), userId);
+                Leanplum.start(RudderClient.getApplication(), userId);
             } else {
-                Leanplum.start(client.getApplication());
+                Leanplum.start(RudderClient.getApplication());
             }
         }
     }

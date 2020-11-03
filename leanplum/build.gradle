@@ -13,15 +13,13 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
-
+    compileSdkVersion 30
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
-        versionName "0.1.0"
+        versionName "1.0.0"
     }
 
     buildTypes {
@@ -40,7 +38,7 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // rudder core sdk
-    compileOnly 'com.rudderstack.android.sdk:core:1.0.2'
+    compileOnly 'com.rudderstack.android.sdk:core:1.+'
 
     // leanplum dependencies
     implementation 'com.leanplum:leanplum-core:5.3.3'
