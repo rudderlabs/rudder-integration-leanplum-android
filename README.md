@@ -25,7 +25,7 @@ repositories {
 ```
 // Rudder core sdk and leanplum extension
 implementation 'com.rudderstack.android.sdk:core:1.0.2'
-implementation 'com.rudderstack.android.integration:leanplum:1.0.0'
+implementation 'com.rudderstack.android.integration:leanplum:1.0.1'
 
 // leanplum core sdk
 implementation 'com.leanplum:leanplum-core:5.3.3'
