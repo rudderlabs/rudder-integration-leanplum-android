@@ -86,18 +86,31 @@ public class LeanPlumIntegrationFactory extends RudderIntegration<Void> {
                     if (eventName != null) {
                         Map<String, Object> properties = message.getProperties();
                         properties = filterProperties(properties);
-                        if (properties != null && properties.containsKey("value")) {
-                            Object value = properties.get("value");
-                            if (value instanceof Double) {
-                                Double val = (Double) value;
-                                if (val != 0.0D) {
-                                    Leanplum.track(eventName, (Double) value, properties);
-                                } else {
-                                    Leanplum.track(eventName, properties);
+                        if (eventName.equalsIgnoreCase("Order Completed")) {
+                            if (properties != null) {
+                                String currency = (String) properties.get("currency");
+                                Object revenue = properties.get("revenue");
+                                if (revenue instanceof Number) {
+                                    Leanplum.trackPurchase(eventName, ((Number) revenue).doubleValue(), currency, properties);
                                 }
+                                Leanplum.track(eventName, properties);
+                            } else {
+                                Leanplum.track(eventName);
                             }
                         } else {
-                            Leanplum.track(eventName, properties);
+                            if (properties != null && properties.containsKey("value")) {
+                                Object value = properties.get("value");
+                                if (value instanceof Double) {
+                                    Double val = (Double) value;
+                                    if (val != 0.0D) {
+                                        Leanplum.track(eventName, (Double) value, properties);
+                                    } else {
+                                        Leanplum.track(eventName, properties);
+                                    }
+                                }
+                            } else {
+                                Leanplum.track(eventName, properties);
+                            }
                         }
                     }
                     break;
