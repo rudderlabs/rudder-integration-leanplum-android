@@ -1,27 +1,27 @@
-# What is Rudder?
+# What is RudderStack?
 
-**Short answer:**
-Rudder is an open-source Segment alternative written in Go, built for the enterprise.
+[RudderStack](https://rudderstack.com/) is a **customer data pipeline** tool for collecting, routing and processing data from your websites, apps, cloud tools, and data warehouse.
 
-**Long answer:**
-Rudder is a platform for collecting, storing and routing customer event data to dozens of tools. Rudder is open-source, can run in your cloud environment (AWS, GCP, Azure or even your data-centre) and provides a powerful transformation framework to process your event data on the fly.
+More information on RudderStack can be found [here](https://github.com/rudderlabs/rudder-server).
 
-Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+## Integrating Leanplum with RudderStack's Android SDK
 
-## Getting Started with LeanPlum Integration of Android SDK
-1. Add [LeanPlum](https://www.leanplum.com) as a destination in the [Dashboard](https://app.rudderstack.com/) and define `applicationId`, and `clientKey`. If you turn on the Development Environment flag, make sure to put your development key in `clientKey`.
+1. Add [Leanplum](https://www.leanplum.com) as a destination in the [Dashboard](https://app.rudderstack.com/) and define `applicationId`, and `clientKey`. If you turn on the Development Environment flag, make sure to put your development key in `clientKey`.
 
 2. Setup the Hybrid Mode of integration:
+
   - Turning on the switch beside `Initialize Native SDK to send automated events` in the dashboard will initialize the LeanPlum native SDK in the application.
   - Turning on the switch beside `Use native SDK to send user generated events` in the dashboard will instruct your `data-plane` to skip the events for LeanPlum and the events will be sent from the LeanPlum SDK.
 
 3. Add these lines to your ```app/build.gradle```
+
 ```
 repositories {
     maven { url "https://dl.bintray.com/rudderstack/rudderstack" }
 }
 ```
 4. Add the dependency under ```dependencies```
+
 ```
 // Rudder core sdk and leanplum extension
 implementation 'com.rudderstack.android.sdk:core:1.0.2'
@@ -35,6 +35,7 @@ implementation 'com.google.code.gson:gson:2.8.6'
 ```
 
 ## Initialize ```RudderClient```
+
 ```
 val rudderClient: RudderClient = RudderClient.getInstance(
     this,
@@ -47,7 +48,8 @@ val rudderClient: RudderClient = RudderClient.getInstance(
 ```
 
 ## Send Events
-Follow the steps from [Rudder Android SDK](https://github.com/rudderlabs/rudder-sdk-android)
+Follow the steps from the [RudderStack Android SDK](https://github.com/rudderlabs/rudder-sdk-android)
 
 ## Contact Us
-If you come across any issues while configuring or using RudderStack, please feel free to [contact us](https://rudderstack.com/contact/) or start a conversation on our [Discord](https://discordapp.com/invite/xNEdEGw) channel. We will be happy to help you.
+
+If you come across any issues while configuring or using this integration, please feel free to start a conversation on our [Slack](https://resources.rudderstack.com/join-rudderstack-slack) channel. We will be happy to help you.
