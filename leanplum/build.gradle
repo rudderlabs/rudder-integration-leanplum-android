@@ -5,10 +5,10 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.0.2"
     }
 
     buildTypes {
@@ -22,10 +22,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // rudder core sdk
-    compileOnly 'com.rudderstack.android.sdk:core:1.+'
+    implementation 'com.rudderstack.android.sdk:core:[1.0,2.0)'
 
     // leanplum dependencies
-    implementation 'com.leanplum:leanplum-core:5.3.3'
+    implementation 'com.leanplum:leanplum-core:5.9.0'
 }
 
-apply from: './maven.gradle'
+//apply from: './maven.gradle'

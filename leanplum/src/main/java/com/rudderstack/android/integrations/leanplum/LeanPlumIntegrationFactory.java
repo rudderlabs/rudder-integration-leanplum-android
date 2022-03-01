@@ -1,12 +1,11 @@
 package com.rudderstack.android.integrations.leanplum;
 
-import android.text.TextUtils;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.leanplum.Leanplum;
 import com.leanplum.LeanplumActivityHelper;
+import com.leanplum.internal.Log;
 import com.rudderstack.android.sdk.core.MessageType;
 import com.rudderstack.android.sdk.core.RudderClient;
 import com.rudderstack.android.sdk.core.RudderConfig;
@@ -35,6 +34,17 @@ public class LeanPlumIntegrationFactory extends RudderIntegration<Void> {
     };
 
     private LeanPlumIntegrationFactory(@Nullable Object config, @NonNull RudderClient client, @NonNull RudderConfig rudderConfig) {
+        final Map<Integer, Integer> logMapping = new HashMap<Integer, Integer>() {
+            {
+                put(RudderLogger.RudderLogLevel.VERBOSE, Log.Level.DEBUG);
+                put(RudderLogger.RudderLogLevel.DEBUG, Log.Level.DEBUG);
+                put(RudderLogger.RudderLogLevel.INFO, Log.Level.INFO);
+                put(RudderLogger.RudderLogLevel.WARN, Log.Level.ERROR);
+                put(RudderLogger.RudderLogLevel.ERROR, Log.Level.ERROR);
+                put(RudderLogger.RudderLogLevel.NONE, Log.Level.OFF);
+            }
+        };
+
         Leanplum.setApplicationContext(RudderClient.getApplication());
         if (RudderClient.getApplication() != null) {
             LeanplumActivityHelper.enableLifecycleCallbacks(RudderClient.getApplication());
@@ -55,8 +65,8 @@ public class LeanPlumIntegrationFactory extends RudderIntegration<Void> {
                     Leanplum.setAppIdForProductionMode(appId, clientKey);
                 }
             }
-            if (rudderConfig.getLogLevel() >= RudderLogger.RudderLogLevel.DEBUG) {
-                Leanplum.enableVerboseLoggingInDevelopmentMode();
+            if (logMapping.containsKey(rudderConfig.getLogLevel())) {
+                Leanplum.setLogLevel(logMapping.get(rudderConfig.getLogLevel()));
             }
 
             RudderContext context = client.getRudderContext();

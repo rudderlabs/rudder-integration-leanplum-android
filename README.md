@@ -24,11 +24,11 @@ repositories {
 
 ```
 // Rudder core sdk and leanplum extension
-implementation 'com.rudderstack.android.sdk:core:1.0.2'
-implementation 'com.rudderstack.android.integration:leanplum:1.0.1'
+implementation 'com.rudderstack.android.sdk:core:[1.0,2.0)'
+implementation 'com.rudderstack.android.integration:leanplum:1.0.2'
 
 // leanplum core sdk
-implementation 'com.leanplum:leanplum-core:5.3.3'
+implementation 'com.leanplum:leanplum-core:5.9.0'
 
 // gson
 implementation 'com.google.code.gson:gson:2.8.6'
