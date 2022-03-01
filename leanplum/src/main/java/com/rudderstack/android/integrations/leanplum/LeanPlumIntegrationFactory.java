@@ -36,8 +36,10 @@ public class LeanPlumIntegrationFactory extends RudderIntegration<Void> {
     private LeanPlumIntegrationFactory(@Nullable Object config, @NonNull RudderClient client, @NonNull RudderConfig rudderConfig) {
         final Map<Integer, Integer> logMapping = new HashMap<Integer, Integer>() {
             {
+                put(RudderLogger.RudderLogLevel.VERBOSE, Log.Level.DEBUG);
                 put(RudderLogger.RudderLogLevel.DEBUG, Log.Level.DEBUG);
                 put(RudderLogger.RudderLogLevel.INFO, Log.Level.INFO);
+                put(RudderLogger.RudderLogLevel.WARN, Log.Level.ERROR);
                 put(RudderLogger.RudderLogLevel.ERROR, Log.Level.ERROR);
                 put(RudderLogger.RudderLogLevel.NONE, Log.Level.OFF);
             }
